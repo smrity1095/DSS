@@ -41,6 +41,7 @@
               ->join('diseases', 'patients.Diseases', '=', 'diseases.id')
               ->select(DB::raw('MONTH(Date) as month'), 'diseases.Name as dName', DB::raw('count(patients.id) as totalPatient'))
               ->groupBy(DB::raw('MONTH(Date), diseases.id'))
+              ->where('diseases.id', '=', $dis)
               ->get();
             ?>
             
@@ -107,17 +108,6 @@
         </div>
         <div class="col-md-2 agile-last-right agile-last-middle">
           <button type="submit" onclick="printDiv('pdf')" class="btn btn-primary">Make PDF</button>
-          <br><br>
-          <form action="{{ url('/msearch/Monthly') }}" method="get">
-            {{ csrf_field() }}
-            <select id="mmsearch" name="mmsearch" class="form-control">
-                <option value="">Select</option>
-                @foreach($diseases as $data)
-                <option value="{{ $data->id }}">{{ $data->Name }}</option> 
-                @endforeach
-            </select>
-            <button style="margin-top: 3px" class="btn btn-primary btn-xs">Search</button>
-          </form>
         </div>
       </div>
     </section>

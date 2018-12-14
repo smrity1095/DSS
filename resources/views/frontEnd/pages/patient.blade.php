@@ -45,25 +45,25 @@
             <div class="panel-body">
                 <table class="table" id="patientTable">
                                 <thead>
+                                    <th>Id</th>
                                     <th>Name</th>
                                     <th>Age</th>
                                     <th>Gender</th>
-                                    <th>BP</th>
                                     <th>Diseases</th>
                                     <th>Date</th>
                                 </thead>
                                 <tbody>
                                     @foreach($patients as $data)
                                     <tr>
+                                        <td> {{ $data->PId }} </td>
                                         <td> {{ $data->Name }} </td>
                                         <td>{{ $data->Age }}</td>
                                         <td>{{ $data->Gender }}</td>
-                                        <td>{{ $data->Pressure }}</td>
                                         <td>{{ $data->dName }}</td>
 
                                         <?php
                                             $oldDate = $data->Date;
-                                            $newDate = date("d-m-Y", strtotime($oldDate));
+                                            $newDate = date("d-M-Y", strtotime($oldDate));
                                         ?>
 
                                         <td>{{  $newDate }}</td>

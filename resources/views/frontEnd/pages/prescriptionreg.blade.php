@@ -99,6 +99,12 @@
 
                     {{ csrf_field() }}
 
+                    @forelse($patientId as $pid)
+                        <input type="hidden" name="PId" value="PAT-{{$pid->id+1}}">
+                    @empty
+                        <input type="hidden" name="PId" value="PAT-1">
+                    @endforelse
+
                     <div class="form-group">
                         <label for="Name" class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-6">

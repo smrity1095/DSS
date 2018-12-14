@@ -18,12 +18,18 @@ class PrescriptionController extends Controller
 
     public function register(){
     	$diseases = DB::table('diseases')->get();
-    	return view('frontEnd.pages.prescriptionreg',['diseases' => $diseases]);
+        $patientId = DB::table('patients')
+        ->select('id')
+        ->orderBy('id','desc')
+        ->limit(1)
+        ->get();
+    	return view('frontEnd.pages.prescriptionreg',['diseases' => $diseases, 'patientId' => $patientId]);
     }
 
     public function storePatient(Request $request){
     	$patient = new Patient();
 
+        $patient->PId = $request->PId;
     	$patient->Name = $request->Name;
     	$patient->Age = $request->Age;
     	$patient->Gender = $request->Gender;

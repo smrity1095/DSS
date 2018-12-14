@@ -6,7 +6,7 @@ Route::get('/m','MainController@management');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('frontEnd.pages.home');;
+Route::get('/home', 'HomeController@index')->name('frontEnd.pages.home');
 
 Route::get('/diseases-reg','DiseasesController@register');
 Route::post('/save/diseases', 'DiseasesController@storeDiseases');
@@ -30,3 +30,10 @@ Route::get('/mweekly-chart','ManagementController@mweekly');
 Route::get('/mmonthly-chart','ManagementController@mmonthly');
 Route::get('/myearly-chart','ManagementController@myearly');
 
+
+Route::get('/search/Weekly/','SearchController@weekly');
+Route::get('/search/Monthly/','SearchController@monthly');
+
+
+Route::get('/msearch/Weekly/','MSearchController@weekly');
+Route::get('/msearch/Monthly/','MSearchController@monthly');

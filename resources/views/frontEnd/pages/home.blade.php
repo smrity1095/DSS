@@ -93,7 +93,7 @@
         <div class="row">
             <div class="panel panel-danger">
                 <div style="height:200px; padding: 20px" class="panel-heading">
-                    <p style="font-size: 70px; font-weight: 700">DSS</p>
+                    <p style="font-size: 40px; font-weight: 700">Decision Support System Based On Patient Diseases</p>
                 </div>
             </div>
         </div>

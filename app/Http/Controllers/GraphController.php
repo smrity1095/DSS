@@ -17,12 +17,13 @@ class GraphController extends Controller
     }
     
     public function weekly(){
-     
-    	return view('frontEnd.pages.weekly');
+        $diseases = DB::table('diseases')->get();
+    	return view('frontEnd.pages.weekly',['diseases' => $diseases]);
     }
 
     public function monthly(){
-    	return view('frontEnd.pages.monthly');
+        $diseases = DB::table('diseases')->get();
+    	return view('frontEnd.pages.monthly',['diseases' => $diseases]);
     }
 
     public function yearly(){

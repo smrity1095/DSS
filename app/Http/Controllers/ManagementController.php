@@ -18,11 +18,13 @@ class ManagementController extends Controller
     
     public function mweekly(){
      
-    	return view('frontEnd.management.mweekly');
+        $diseases = DB::table('diseases')->get();
+    	return view('frontEnd.management.mweekly',['diseases' => $diseases]);
     }
 
     public function mmonthly(){
-    	return view('frontEnd.management.mmonthly');
+        $diseases = DB::table('diseases')->get();
+    	return view('frontEnd.management.mmonthly',['diseases' => $diseases]);
     }
 
     public function myearly(){
